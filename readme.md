@@ -2,29 +2,28 @@
 
 ---
 
-## hello
+## 🌍hello
 
 项目介绍：
 hello world 项目
 
-## learnchannel
+## ✏️learnchannel
 
 项目介绍：
 学习 go channel 的项目
 
-## learnselect
+## ✏️learnselect
 
 项目介绍：
 学习 go select 的项目
 
-## learnsqlite
+## ✏️learnsqlite
 
 项目介绍：
 学习 go 操作 sqlite 的项目
 
-## learnwg
+## ✏️learnwg
 
 项目介绍：
 学习 go 中 sync 的 WaitGroup 的项目
- 
 
