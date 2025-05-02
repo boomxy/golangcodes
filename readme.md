@@ -27,5 +27,12 @@ hello world 项目
 项目介绍：
 学习 go 中 sync 的 WaitGroup 的项目
 
+## ✏️learnhandlefunc
+
+项目介绍：
+学习 go 中 func 接受者的使用（参考 http/server 的 handlefunc）
+
+
+
 ---
 
