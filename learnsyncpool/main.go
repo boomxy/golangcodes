@@ -26,7 +26,7 @@ func main() {
 	obj := pool.Get().(*[]byte) // 2.1 类型断言.(*[]byte) 为 *[]byte 指针类型
 
 	// 3. 确保使用完对象后，将对象放回对象池
-	defer pool.Put(&obj)
+	defer pool.Put(obj)
 
 	// 4. 清空对象池
 	*obj = (*obj)[:0]
