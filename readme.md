@@ -37,5 +37,10 @@ hello world 项目
 项目介绍：
 学习 go 中通过 intrerface 实现多态，鸭子类型
 
+## ✏️learnsyncpool
+
+项目介绍：
+学习 go 中 sync.Pool 的使用
+
 ---
 
