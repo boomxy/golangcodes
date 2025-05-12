@@ -148,7 +148,9 @@ func nestedWithPointer() {
 	fmt.Println(s)
 
 	fmt.Println("The school is:", s.Name, ",Address is:", s.Addr)
-	fmt.Println("The leader is:", s.Leader, "==Name is:", s.Leader.Name, ",Age is:", s.Leader.Age)
+	fmt.Println("The leader is:", s.Leader, "==Name is:", s.Leader.Name, ",Age is:", s.Leader.Age) // 这种方式更常用
+	// 注意： (*s.Leader).Name 和 s.Leader.Name 是等价的， s.Leader.Age 和 (*s.Leader).Age 是等价的
+	fmt.Println("The leader is:", s.Leader, "==Name is:", (*s.Leader).Name, ",Age is:", (*s.Leader).Age) 
 	fmt.Println("The teachers are:", s.Teachers)
 	for _, v := range s.Teachers { // 遍历， 注意s.Teachers
 		fmt.Println("The teacher is:", v, "==Name is:", v.Info.Name, ",Age is:", v.Info.Age, ",Salary is:", v.Salary)
