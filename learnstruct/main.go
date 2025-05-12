@@ -22,6 +22,14 @@ type Teacher struct {
 	Salary int
 }
 
+type School struct {
+	Name     string
+	Addr     string
+	Teachers []Teacher
+	Leader   *Person
+	Students *[]Student
+}
+
 func simple() {
 	// 第一种方式
 	var p Person
@@ -91,6 +99,67 @@ func nested2() {
 	fmt.Println(t3.Info.Name, t3.Info.Age, t3.Salary)
 }
 
+func nestedWithPointer() {
+	s1 := Student{ // 简写
+		Person{"Jim's1", 21},
+		121,
+	}
+	s2 := Student{ // 简写
+		Person{"Jim's2", 22},
+		122,
+	}
+	s3 := Student{ // 简写
+		Person{"Jim's3", 23},
+		123,
+	}
+	students := &[]Student{s1, s2, s3}
+	t1 := Teacher{
+		Info: Person{
+			Name: "Jim't1",
+			Age:  31,
+		},
+		Salary: 10001,
+	}
+	t2 := Teacher{
+		Info: Person{
+			Name: "Jim't1",
+			Age:  32,
+		},
+		Salary: 10002,
+	}
+	t3 := Teacher{
+		Info: Person{
+			Name: "Jim't1",
+			Age:  33,
+		},
+		Salary: 10003,
+	}
+	teachers := []Teacher{t1, t2, t3}
+	leader := &Person{
+		Name: "Jim'l",
+		Age:  51,
+	}
+	var s School
+	s.Name = "BJ"
+	s.Addr = "Beijing"
+	s.Teachers = teachers
+	s.Students = students
+	s.Leader = leader
+	fmt.Println(s)
+
+	fmt.Println("The school is:", s.Name, ",Address is:", s.Addr)
+	fmt.Println("The leader is:", s.Leader, "==Name is:", s.Leader.Name, ",Age is:", s.Leader.Age)
+	fmt.Println("The teachers are:", s.Teachers)
+	for _, v := range s.Teachers { // 遍历， 注意s.Teachers
+		fmt.Println("The teacher is:", v, "==Name is:", v.Info.Name, ",Age is:", v.Info.Age, ",Salary is:", v.Salary)
+	}
+	fmt.Println("The students are:", s.Students)
+
+	for _, v := range *s.Students { // 遍历, 注意*s.Students
+		fmt.Println("The student is:", v, "==Name is:", v.Name, ",Age is:", v.Age, ",Score is:", v.Score)
+	}
+}
+
 func main() {
 	log.SetOutput(os.Stdout)
 	log.Println("Start")
@@ -101,6 +170,8 @@ func main() {
 	nested()
 	fmt.Println("----nested2()----")
 	nested2()
+	fmt.Println("----nestedWithPointer()----")
+	nestedWithPointer()
 	log.Println("Done")
 	os.Exit(0)
 }
